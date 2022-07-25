@@ -32,14 +32,14 @@ class Game
     num1 = rand(1..20)
     num2 = rand(1..20)
     @answer = num1 + num2
-    puts "#{@current_player.name}: What does #{num1} plus #{num2} equal?"
+    puts "#{@current_player.name}: Try this one. What does #{num1} plus #{num2} equal?"
   end
 
   def verify_answer(answer)
     if answer.to_i == @answer
-      puts "YES! You are correct."
+      puts "Great, you are 100% correct."
     else
-      puts "Seriously? No!"
+      puts "No way! You are wrong!"
       @current_player.lose_life
     end
   end
