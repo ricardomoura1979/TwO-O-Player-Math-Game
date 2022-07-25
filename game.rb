@@ -6,7 +6,7 @@ class Player
     @lives = 3
   end
 
-  def lose_life
+  def lost_life
     @lives -= 1
   end
 end
@@ -40,11 +40,11 @@ class Game
       puts "Great, you are 100% correct."
     else
       puts "No way! You are wrong!"
-      @current_player.lose_life
+      @current_player.lost_life
     end
   end
 
-  def game_over?
+  def game_over
     @player1.lives == 0 || @player2.lives == 0
   end
 
@@ -61,7 +61,7 @@ player1 = Player.new("Player 1")
 player2 = Player.new("Player 2")
 game = Game.new(player1, player2)
 
-while !game.game_over?
+while !game.game_over
   game.generate_question
   answer = gets.chomp
   game.verify_answer(answer)
